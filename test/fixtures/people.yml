@@ -1,9 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  adress: MyString
+  name: person one
+  adress: some adress
 
 two:
-  name: MyString
-  adress: MyString
+  name: person two
+  adress: 
+
+tree:
+  name:
+  adress: some adress
