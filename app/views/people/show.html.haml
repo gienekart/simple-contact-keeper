@@ -1,2 +1,10 @@
-<h1>People#show</h1>
-<p>Find me in app/views/people/show.html.erb</p>
+%h2 Kontakt
+%p 
+  %b Imie i nazwisko
+  @person.name
+  %br
+  -if @person.adress
+    %b Adres
+    @person.adres
+%p
+  = link_to 'Edytuj', edit_person_path

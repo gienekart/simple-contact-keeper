@@ -1,2 +1,5 @@
-<h1>People#edit</h1>
-<p>Find me in app/views/people/edit.html.erb</p>
+#main
+  .show_all
+    %h2 Edycja kontaktu
+    = render :partial => 'form'
+    = link_to 'Wróć', people_path

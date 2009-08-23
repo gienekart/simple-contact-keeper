@@ -3,11 +3,17 @@
     %h2 Wszystkie kontakty z twojego profilu
     -@people.each do |person|
       .person
-        %p
+        %p.data
+          Personalia: 
           = person.name
-          -if person.adress
+          %br
+          -if not person.adress.empty?
+            Adres: 
             = person.adress
-          = person.id
-          = link_to_url(person_url(@person))
+        %p.opcions
+          =link_to 'Pokaż', person
+          = link_to 'Edytuj', edit_person_path(person)
+          = link_to 'Usuń', person, :confirm => 'Jesieś pewien?', :method => :delete
+    = link_to 'Nowy kontakt', new_person_path
       
 

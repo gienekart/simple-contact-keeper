@@ -1,0 +1,10 @@
+- form_for :person do |f|
+  = f.error_messages
+  %p
+    %label Imie i nazwisko
+    = f.text_field :name
+  %p
+    %label Adres
+    = f.text_field :adress
+  %p
+    = submit_tag "Dodaj kontakt" , :class => "submit"
