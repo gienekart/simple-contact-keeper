@@ -1,8 +1,13 @@
 #main
-  .note
-    %h2 Quick Notes
-    %ul
-      %li
-        Haml is indented with 
-        %strong two spaces *only*
+  .show_all
+    %h2 Wszystkie kontakty z twojego profilu
+    -@people.each do |person|
+      .person
+        %p
+          = person.name
+          -if person.adress
+            = person.adress
+          = person.id
+          = link_to_url(person_url(@person))
+      
 
