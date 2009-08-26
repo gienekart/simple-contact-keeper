@@ -6,4 +6,8 @@ one:
 
 two:
   person_id: 1
-  data: MyString
+  data:
+
+tree:
+  person_id: 1001
+  data: some
