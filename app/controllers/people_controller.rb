@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class PeopleController < ApplicationController
-  before_filter :create_person, :only => [:show, :edit, :delete]
+  before_filter :create_person, :only => [:show, :edit, :destroy]
   
   def index
     @people = Person.find(:all)
@@ -25,10 +25,10 @@ class PeopleController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @person.destroy
 
-    redirect_to(people_url)
+    redirect_to:action => :index #(people_url)
   end
 
 

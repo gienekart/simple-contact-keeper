@@ -1,10 +1,13 @@
 %h2 Kontakt
 %p 
-  %b Imie i nazwisko
-  @person.name
+  %b 
+    Imie i nazwisko
+    = @person.name
   %br
   -if @person.adress
-    %b Adres
-    @person.adres
+    %b 
+      Adres
+      = @person.adress
 %p
+  = link_to 'Wróć', people_path
   = link_to 'Edytuj', edit_person_path
