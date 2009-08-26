@@ -1,0 +1,10 @@
+- form_for :person do |f|
+  = f.error_messages
+  %p
+    %label Id kontaktu
+    = f.text_field :person_id
+  %p
+    %label Dane kontaktowe
+    = f.text_field :data
+  %p
+    = submit_tag "Zatwierdź" , :class => "submit"

@@ -1,0 +1,9 @@
+-@contacts.each do |contact|
+  .contact
+    %p.data
+      Dane: 
+      = person.name
+    %p.opcions
+      = link_to 'Pokaż', contact
+      = link_to 'Edytuj', edit_contact_path(contact)
+      = link_to 'Usuń', contact, :confirm => 'Jesieś pewien?', :method => :delete

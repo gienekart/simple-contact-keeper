@@ -1,9 +1,9 @@
-# -*- coding: undecided -*-
+# -*- coding: utf-8 -*-
 class ContactsController < ApplicationController
   before_filter :create_contact, :only => [:show, :edit, :destroy]
   
   def index
-    @people = Contact.find(:all)
+    @contacts = Contact.find(:all)
   end
 
   def show
