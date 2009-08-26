@@ -1,7 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :contacts, :member => {:edit => :post, :destroy => :post}
-  map.resources :people, :member => {:edit => :post, :destroy => :post}
+  map.resources :people, :member => {:edit => :post, :destroy => :post}, :has_many => :contacts #do |people|
+   # people.resources :contacts, :member => {:edit => :post, :destroy => :post, :new => :post}
+  # end
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

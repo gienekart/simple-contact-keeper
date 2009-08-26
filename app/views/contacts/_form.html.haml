@@ -1,8 +1,7 @@
-- form_for :contact do |f|
+- form_for ([@person, @contact]) do |f|
   = f.error_messages
   %p
-    %label Id kontaktu
-    = f.text_field :person_id
+    %input{ :id => "contact_person_id", :name => "contact[person_id]", :value => params[:person_id], :type => "hidden"}
   %p
     %label Dane kontaktowe
     = f.text_field :data

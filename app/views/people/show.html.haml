@@ -9,5 +9,7 @@
       Adres
       = @person.adress
 %p
+  = render :partial => '/contacts/show_all'
+%p
   = link_to 'Wróć', people_path
   = link_to 'Edytuj', edit_person_path

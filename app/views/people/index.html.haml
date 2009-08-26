@@ -1,19 +1,20 @@
 #main
   .show_all
     %h2 Wszystkie kontakty z twojego profilu
-    -@people.each do |person|
+    -@people.each do |@person|
       .person
         %p.data
           Personalia: 
-          = person.name
+          = @person.name
           %br
-          -if not person.adress.empty?
+          -if not @person.adress.empty?
             Adres: 
-            = person.adress
+            = @person.adress
+        = render :partial => '/contacts/show_all'
         %p.opcions
-          =link_to 'Pokaż', person
-          = link_to 'Edytuj', edit_person_path(person)
-          = link_to 'Usuń', person, :confirm => 'Jesieś pewien?', :method => :delete
+          =link_to 'Pokaż', @person
+          = link_to 'Edytuj', edit_person_path(@person)
+          = link_to 'Usuń', @person, :confirm => 'Jesieś pewien?', :method => :delete
     = link_to 'Nowy kontakt', new_person_path
       
 
