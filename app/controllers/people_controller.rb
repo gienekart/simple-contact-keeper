@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class PeopleController < ApplicationController
-  before_filter :create_person, :only => [:show, :delete]
+  before_filter :create_person, :only => [:show, :edit, :delete]
   
   def index
     @people = Person.find(:all)
@@ -11,21 +11,16 @@ class PeopleController < ApplicationController
 
   def edit
     #czy to jest wywoływane przez formularz
-    if request.post?
-      @person = Person.new(params[:person])
-      if @person.save
-        flash[:notice] = "User #{@person.name} created"
-        redirect_to :action => :index
-      end
-    else #czy może wywołane przez link do edit
-      @person = Person.my_find(params[:id])
+    if request.post? & @person.update_attributes(params[:person])
+      flash[:notice] = "Kontakt #{@person.name} zaktualizowany"
+      redirect_to :action => :index
     end
   end
 
   def new
     @person = Person.new(params[:person])
     if request.post? and @person.save
-      flash[:notice] = "User #{@person.name} created"
+      flash[:notice] = "Kontakt #{@person.name} utworzony"
       redirect_to :action => :index
     end
   end

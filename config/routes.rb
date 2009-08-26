@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :people, :member => {:edit => {:get, :post}}
+  map.resources :people, :member => {:edit => :post}
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
