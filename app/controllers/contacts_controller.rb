@@ -12,16 +12,20 @@ class ContactsController < ApplicationController
   def edit
     #czy to jest wywoływane przez formularz
     if request.post? & @contact.update_attributes(params[:contact])
-      flash[:notice] = "Kontakt do #{@contact.person.name} zaktualizowany"
+      #flash[:notice] = "Kontakt do #{@contact.person.name} zaktualizowany"
       redirect_to :action => :index
     end
   end
 
   def new
     @contact = Contact.new(params[:contact])
-    if request.post? and @contact.save
-      flash[:notice] = "Kontakt do #{@contact.person.name} utworzony"
-      redirect_to :action => :index
+    if request.post?
+      if @contact.save
+        #flash[:notice] = "Kontakt do #{@contact.person.name} utworzony"
+        redirect_to :action => :index
+      else
+        flash[:notice] = "Kontakt zawiera błąd"
+      end
     end
   end
 
@@ -34,6 +38,6 @@ class ContactsController < ApplicationController
 
 private
   def create_contact
-    @contact = Contacty.my_find(params[:id])
+    @contact = Contact.my_find(params[:id])
   end
 end
