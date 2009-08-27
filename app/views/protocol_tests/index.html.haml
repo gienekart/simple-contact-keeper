@@ -2,6 +2,12 @@
   .show_all
     %h2 Lista wszystkich testów
     #test_prto_name
-     %b Protokół
-     -@tests.each d0 |te|
-        %br te.protocol.name
+      %b Protokół
+      -@tests.each do |te|
+        %br 
+        = te.protocol.name
+    #test_pro_data
+      %b Dane
+      -@tests.each do |te|
+        %br 
+        = te.data
