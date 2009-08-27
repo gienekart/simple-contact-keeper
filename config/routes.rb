@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-
+  map.resources :protocols, :member => {:edit => :post}
   map.resources :people, :member => {:edit => :post, :destroy => :post}, :has_many => :contacts #do |people|
    # people.resources :contacts, :member => {:edit => :post, :destroy => :post, :new => :post}
   # end

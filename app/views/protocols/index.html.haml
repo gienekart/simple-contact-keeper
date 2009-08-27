@@ -1,0 +1,16 @@
+#main
+  .show_all
+    %h2 Wszystkie obsługiwane protokoły
+    -@protocols.each do |@protocol|
+      .protocol
+        %p.data
+          Nazwa protokołu: 
+          = @protocol.name
+          %br
+          kod walidacyjny: 
+          = @protocol.valid_exp
+        %p.opcions
+          =link_to 'Pokaż szczegóły', @protocol
+          = link_to 'Edytuj', edit_protocol_path(@protocol)
+          = link_to 'Usuń', @protocol, :confirm => 'Jesieś pewien?', :method => :delete
+    = link_to 'Nowy protokół', new_protocol_path
