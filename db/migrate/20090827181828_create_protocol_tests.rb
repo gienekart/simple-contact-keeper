@@ -1,10 +1,9 @@
 class CreateProtocolTests < ActiveRecord::Migration
   def self.up
     create_table :protocol_tests do |t|
+      t.protocol_id :integer
       t.string :data
       t.boolean :result
-
-      t.timestamps
     end
   end
 
