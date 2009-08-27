@@ -3,8 +3,6 @@ class CreateProtocols < ActiveRecord::Migration
     create_table :protocols do |t|
       t.string :name
       t.string :valid_exp
-
-      t.timestamps
     end
   end
 
