@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20090827181828) do
   end
 
   create_table "protocol_tests", :force => true do |t|
+    t.integer "protocol_id"
     t.string  "data"
     t.boolean "result"
   end

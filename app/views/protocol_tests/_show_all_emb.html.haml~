@@ -1,0 +1,12 @@
+#tests
+  -@protocol.protocol_tests.each do |te|
+    %b Dane do walidacji
+    = te.data
+    %br
+    %b Oczekiwany rezultat
+    - if te.result
+      prawda
+    - else
+      fałsz
+    - end
+  -end

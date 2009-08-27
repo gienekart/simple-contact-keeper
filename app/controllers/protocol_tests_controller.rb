@@ -1,0 +1,2 @@
+class ProtocolTestsController < ApplicationController
+end
