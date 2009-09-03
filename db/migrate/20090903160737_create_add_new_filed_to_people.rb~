@@ -1,0 +1,12 @@
+class CreateAddNewFiledToPeople < ActiveRecord::Migration
+  def self.up
+    create_table :add_new_filed_to_people do |t|
+
+      t.timestamps
+    end
+  end
+
+  def self.down
+    drop_table :add_new_filed_to_people
+  end
+end
