@@ -1,0 +1,10 @@
+- form_for :challenge do |f|
+  = f.error_messages
+  %p
+    %label Nazwa protokołu
+    = f.text_field :name
+  %p
+    %label Kod walidujący
+    = f.text_field :valid_exp
+  %p
+    = submit_tag "Zatwierdź" , :class => "submit"

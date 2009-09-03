@@ -1,0 +1,12 @@
+- form_for ([@protocol, @challenge]) do |f|
+  = f.error_messages
+  %p
+    %input{  :id => "challenge_protocol_id", :name => "challenge[protocol_id]", :value => params[:protocol_id], :type => "hidden"}
+  %p
+    %label dane testowe
+    = f.text_field :data
+  %p
+    %label oczekiwany wynik
+    = f.text_field :result
+  %p
+    = submit_tag "Zatwierdź" , :class => "submit"

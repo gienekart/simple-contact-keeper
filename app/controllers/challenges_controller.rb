@@ -18,19 +18,20 @@ class ChallengesController < ApplicationController
     #czy to jest wywoływane przez formularz
     if @challenge.update_attributes(params[:challenge])
       #flash[:notice] = "Kontakt do #{@challenge.person.name} zaktualizowany"
-      redirect_to person_url(@person)
+      redirect_to protocol_url(@protocol)
     end
   end
 
   def new
-    @challenge = @protocol.challenges.build
+    # @challenge = @protocol.challenges.build
+    @challenge = Challenge.new
   end
 
   def create
-    @challenge = challenge.new(params[:challenge])
+    @challenge = Challenge.new(params[:challenge])
     if @challenge.save
         #flash[:notice] = "Kontakt do #{@challenge.person.name} utworzony"
-        redirect_to person_url(@person)
+        redirect_to protocol_url(@protocol)
       else
         flash[:notice] = "Kontakt zawiera błąd"
       end
@@ -44,7 +45,7 @@ class ChallengesController < ApplicationController
 
 private
   def create_challenge
-    @challenge = challenge.my_find(params[:id])
+    @challenge = Challenge.my_find(params[:id])
   end
 
   def load_protocol

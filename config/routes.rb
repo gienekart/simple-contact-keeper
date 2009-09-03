@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :protocols, :member => {:edit => :post} #, :has_many => 
-  map.resources :challenges
+  map.resources :protocols, :member => {:edit => :post} do |prot| #, :has_many => :challenges
+    prot.resources :challenges, :member => {:create => :post}
+  end
+
   map.resources :people, :member => {:edit => :post, :destroy => :post}, :has_many => :contacts #do |people|
    # people.resources :contacts, :member => {:edit => :post, :destroy => :post, :new => :post}
   # end

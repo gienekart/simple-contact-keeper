@@ -1,17 +1,17 @@
 #tests
-  -@protocol.tests.each do |te|
+  -@protocol.challenges.each do |ch|
     %p
       %b Dane do walidacji
-      = te.data
+      = ch.data
       %br
       %b Oczekiwany rezultat
-      - if te.result
+      - if ch.result
         prawda
       - else
         fałsz
       %br
       %b Uzyskany resultat
       %br
-      = link_to 'Edytuj test', edit__tests_path(te)     
-  = link_to 'Nowy test', new_tests_path(te)
+      = link_to 'Edytuj test', edit_protocol_challenge_path(@protocol, ch) 
+  = link_to 'Nowy test', new_protocol_challenge_path(@protocol)
   
