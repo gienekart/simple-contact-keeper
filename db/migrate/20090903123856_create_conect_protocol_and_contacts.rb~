@@ -1,0 +1,12 @@
+class CreateConectProtocolAndContacts < ActiveRecord::Migration
+  def self.up
+    create_table :conect_protocol_and_contacts do |t|
+
+      t.timestamps
+    end
+  end
+
+  def self.down
+    drop_table :conect_protocol_and_contacts
+  end
+end

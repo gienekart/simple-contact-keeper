@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 class ContactsController < ApplicationController
   before_filter :load_person
+  before_filter :load_protocols, :only => [:new, :edit]
   before_filter :create_contact, :only => [:show, :edit, :update, :destroy]
   
   def index
@@ -47,6 +48,10 @@ class ContactsController < ApplicationController
 private
   def create_contact
     @contact = Contact.my_find(params[:id])
+  end
+
+  def load_protocols
+    @protocols = Protocol.find(:all)
   end
 
   def load_person

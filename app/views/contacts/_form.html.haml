@@ -3,6 +3,12 @@
   %p
     %input{ :id => "contact_person_id", :name => "contact[person_id]", :value => params[:person_id], :type => "hidden"}
   %p
+    %label Protokół
+    %select{:id => "contact_protocol_id", :name => "contact[protocol_id]"}
+      - @protocols.each do |protocol|
+        %option{value = "#{protocol.id}"} 
+          = protocol.name
+  %p
     %label Dane kontaktowe
     = f.text_field :data
   %p
