@@ -1,0 +1,53 @@
+class ChallengesController < ApplicationController
+
+  before_filter :load_protocol
+  before_filter :create_challenge, :only => [:show, :edit, :update, :destroy]
+
+  def index
+    @challenges = Challenge.my_find(:all)
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    
+    #czy to jest wywoływane przez formularz
+    if @challenge.update_attributes(params[:challenge])
+      #flash[:notice] = "Kontakt do #{@challenge.person.name} zaktualizowany"
+      redirect_to person_url(@person)
+    end
+  end
+
+  def new
+    @challenge = @protocol.challenges.build
+  end
+
+  def create
+    @challenge = challenge.new(params[:challenge])
+    if @challenge.save
+        #flash[:notice] = "Kontakt do #{@challenge.person.name} utworzony"
+        redirect_to person_url(@person)
+      else
+        flash[:notice] = "Kontakt zawiera błąd"
+      end
+  end
+
+  def destroy
+    @challenge.destroy
+
+    redirect_to person_url(@person)
+  end
+
+private
+  def create_challenge
+    @challenge = challenge.my_find(params[:id])
+  end
+
+  def load_protocol
+    @protocol = Protocol.my_find(params[:protocol_id])
+  end
+end

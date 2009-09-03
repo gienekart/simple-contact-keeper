@@ -1,6 +1,6 @@
 class Protocol < ActiveRecord::Base
   validates_presence_of :valid_exp, :name
-  has_many :protocol_tests
+  has_many :challenges
 
   def self.my_find(id)
     begin

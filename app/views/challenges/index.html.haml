@@ -1,0 +1,13 @@
+#main
+  .show_all
+    %h2 Lista wszystkich testów
+    #challenge_name
+      %b Protokół
+      -@challenges.each do |te|
+        %br 
+        = te.protocol.name
+    #challenge_data
+      %b Dane
+      -@challenges.each do |te|
+        %br 
+        = te.data

@@ -1,4 +1,0 @@
-#main
-  .show_all
-    %h2 Lista wszystkich kontaktów
-    = render :partial => 'show_all'

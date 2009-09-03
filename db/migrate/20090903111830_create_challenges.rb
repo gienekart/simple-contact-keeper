@@ -1,6 +1,6 @@
-class CreateProtocolTests < ActiveRecord::Migration
+class CreateChallenges < ActiveRecord::Migration
   def self.up
-    create_table :protocol_tests do |t|
+    create_table :challenges do |t|
       t.integer :protocol_id
       t.string :data
       t.boolean :result
@@ -8,6 +8,6 @@ class CreateProtocolTests < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :protocol_tests
+    drop_table :challenges
   end
 end

@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :protocols, :member => {:edit => :post} #, :has_many => 
-  map.resources :protocol_tests
+  map.resources :challenges
   map.resources :people, :member => {:edit => :post, :destroy => :post}, :has_many => :contacts #do |people|
    # people.resources :contacts, :member => {:edit => :post, :destroy => :post, :new => :post}
   # end
