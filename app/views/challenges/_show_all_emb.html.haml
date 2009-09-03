@@ -1,16 +1,20 @@
 #tests
   -@protocol.challenges.each do |ch|
     %p
-      %b Dane do walidacji
+      %b Dane do walidacji:
       = ch.data
       %br
-      %b Oczekiwany rezultat
+      %b Oczekiwany rezultat:
       - if ch.result
         prawda
       - else
         fałsz
       %br
-      %b Uzyskany resultat
+      %b Wynik testu:
+      - if ch.is_valid? == ch.result
+        #ok zaliczony
+      - else
+        #bad błąd testu
       %br
       = link_to 'Edytuj test', edit_protocol_challenge_path(@protocol, ch) 
       = link_to 'Usuń test', protocol_challenge_path(@protocol, ch), :confirm => 'Jesieś pewien?', :method => :delete

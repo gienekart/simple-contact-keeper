@@ -12,4 +12,13 @@ class Contact < ActiveRecord::Base
     end
     @contact
   end
+
+  def is_valid?
+    expression = Regexp.new(self.protocol.valid_exp)
+    if self.data[expression]
+      return true
+    else
+      return false
+  end
+
 end
