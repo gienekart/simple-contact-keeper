@@ -29,18 +29,26 @@ class ChallengesController < ApplicationController
 
   def create
     @challenge = Challenge.new(params[:challenge])
+    # @challenge.result = params[:challenge][:result]
+    if params[:challenge][:result] == 'true'
+       @challenge.result = true
+    else
+       @challenge.result = false
+    end
+
     if @challenge.save
         #flash[:notice] = "Kontakt do #{@challenge.person.name} utworzony"
         redirect_to protocol_url(@protocol)
-      else
+    else
         flash[:notice] = "Kontakt zawiera błąd"
-      end
+        redirect_to :action => :new
+    end
   end
 
   def destroy
     @challenge.destroy
 
-    redirect_to person_url(@person)
+    redirect_to protocol_url(@protocol)
   end
 
 private

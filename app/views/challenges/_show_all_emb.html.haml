@@ -13,5 +13,6 @@
       %b Uzyskany resultat
       %br
       = link_to 'Edytuj test', edit_protocol_challenge_path(@protocol, ch) 
+      = link_to 'Usuń test', protocol_challenge_path(@protocol, ch), :confirm => 'Jesieś pewien?', :method => :delete
   = link_to 'Nowy test', new_protocol_challenge_path(@protocol)
   

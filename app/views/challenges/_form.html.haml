@@ -7,6 +7,7 @@
     = f.text_field :data
   %p
     %label oczekiwany wynik
-    = f.text_field :result
+    %input{:type => "radio", :name => "challenge[result]", :id => "challenge_result_true", :value => "true"} prawda
+    %input{:type => "radio", :name => "challenge[result]", :id => "challenge_result_false", :value => "false"} fałsz
   %p
     = submit_tag "Zatwierdź" , :class => "submit"
